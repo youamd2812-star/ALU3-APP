@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>حاسبة احتياجات بروفيلات الألمنيوم</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1A2830">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="حاسبة الألمنيوم">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#EEF1EF;--ink:#20303B;--ink-soft:#5B6B74;--steel:#33495B;--steel-dark:#1A2830;--card:#FCFDFC;--line:#D6DCDA;--orange:#E1600F;--orange-dark:#B84B0A;--yellow:#F0B429;--danger:#C0392B;--green:#2F7A4F;--radius:10px}
+*{box-sizing:border-box}html,body{margin:0;padding:0}body{font-family:'Tajawal',sans-serif;color:var(--ink);background:var(--paper);min-height:100vh;padding-bottom:120px}.wrap{max-width:680px;margin:0 auto;padding:18px 14px 10px}.mono{font-family:'IBM Plex Mono',monospace}header{padding:6px 4px 14px}.eyebrow{font-size:12px;color:var(--orange-dark);font-weight:700;margin-bottom:4px}h1{font-size:24px;line-height:1.25;margin:0 0 6px;color:var(--steel-dark);font-weight:800}.sub{color:var(--ink-soft);font-size:13.5px;margin:0;line-height:1.6}.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px;margin-bottom:14px}.card h2{font-size:15px;color:var(--steel);margin:0 0 4px;font-weight:800;display:flex;align-items:center;gap:8px}.idx{font-family:'IBM Plex Mono',monospace;color:#fff;background:var(--steel);font-size:11px;padding:2px 7px;border-radius:4px;font-weight:600}.desc{font-size:12.5px;color:var(--ink-soft);margin:0 0 14px;line-height:1.6}.row{display:flex;gap:10px;margin-bottom:12px}.row>div{flex:1;min-width:0}label{display:block;font-size:12px;font-weight:700;color:var(--ink-soft);margin-bottom:5px}input,select,textarea{width:100%;font-size:15px;padding:10px;border:1.5px solid var(--line);border-radius:8px;background:#fff;color:var(--ink);font-family:'Tajawal',sans-serif}input[type=number]{font-family:'IBM Plex Mono',monospace}input:focus,select:focus,textarea:focus{outline:2px solid var(--orange);outline-offset:1px;border-color:var(--orange)}.unit{font-size:11px;color:var(--ink-soft);margin-top:3px}.profile-block{border:1.5px solid var(--line);border-radius:8px;padding:12px;margin-bottom:10px;background:#fff}.ptitle{display:flex;align-items:center;gap:8px;font-weight:700;font-size:14px;margin-bottom:10px;color:var(--steel-dark)}.swatch{width:10px;height:10px;border-radius:2px;flex-shrink:0}.choice-box{display:flex;gap:10px}.choice-box label{flex:1;border:1.5px solid var(--line);border-radius:8px;background:#fff;padding:10px;color:var(--steel-dark);font-size:14px}.choice-box input{width:auto;margin-left:6px}button{font-weight:700;cursor:pointer;border:none;font-family:'Tajawal',sans-serif}.btn-add{width:100%;background:var(--orange);color:#fff;font-size:15px;padding:14px;border-radius:8px;box-shadow:0 2px 0 var(--orange-dark)}.btn-secondary{width:100%;background:var(--steel-dark);color:#fff;font-size:14px;padding:12px;border-radius:8px;margin-top:8px}.btn-green{background:var(--green);box-shadow:0 2px 0 #24613E}.list-title{font-size:14px;color:var(--steel);margin:22px 4px 10px;font-weight:800;display:flex;justify-content:space-between;align-items:center}.list-title button{background:none;color:var(--danger);font-size:12px;padding:4px 0}.empty{text-align:center;color:var(--ink-soft);font-size:13.5px;padding:26px 10px;border:1.5px dashed var(--line);border-radius:var(--radius)}.item{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:12px 14px;margin-bottom:9px}.item-top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}.item-name{font-weight:700;font-size:14.5px;color:var(--steel-dark)}.item-dims{font-size:12px;color:var(--ink-soft);margin-top:2px}.item-del{background:none;color:var(--ink-soft);font-size:12px;font-weight:600;padding:6px 0 0}.res-row{display:flex;justify-content:space-between;align-items:center;padding:11px 4px;border-bottom:1px solid var(--line);gap:10px}.res-row:last-child{border-bottom:none}.res-name{display:flex;align-items:center;gap:9px;font-weight:700;font-size:14px;color:var(--steel-dark)}.res-vals{text-align:left;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--ink-soft);line-height:1.5}.res-vals b{color:var(--orange-dark);font-size:14.5px}.tapebar{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--steel-dark);color:#fff;border-top:3px solid var(--yellow);box-shadow:0 -4px 14px rgba(0,0,0,.18)}.tapebar-inner{max-width:680px;margin:0 auto;padding:10px 16px 12px}.tapebar-row{display:flex;justify-content:space-between;align-items:center;gap:10px}.tapebar-label{font-size:11px;color:#B9C4CA;font-weight:700}.tapebar-total{font-size:23px;font-weight:800;color:var(--yellow)}.tapebar-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}.icon-btn{background:rgba(255,255,255,.1);color:#fff;border-radius:8px;min-width:42px;height:42px;padding:0 10px;display:flex;align-items:center;justify-content:center;font-size:13px;gap:5px;white-space:nowrap}.icon-btn .ico{font-size:18px}.history-page{display:none;position:fixed;inset:0;z-index:50;background:var(--paper);overflow:auto;padding:16px;direction:rtl}.history-page.active{display:block}.history-header{max-width:680px;margin:0 auto 12px;display:flex;gap:8px;align-items:center;justify-content:space-between}.history-title{font-size:20px;font-weight:800;color:var(--steel-dark)}.history-actions{display:flex;gap:8px;flex-wrap:wrap}.history-btn{background:var(--steel-dark);color:#fff;border-radius:8px;padding:10px 12px;font-size:13px}.history-btn.orange{background:var(--orange)}.history-btn.danger{background:var(--danger)}.history-content{max-width:680px;margin:0 auto}.history-record{background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px;margin-bottom:10px}.history-record-title{font-weight:800;color:var(--steel-dark);font-size:14px;line-height:1.6}.history-record-meta{font-size:12px;color:var(--ink-soft);line-height:1.7}.history-record-buttons{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}.history-small-btn{background:#EEF1EF;color:var(--steel-dark);border:1px solid var(--line);border-radius:7px;padding:7px 9px;font-size:12px}.history-small-btn.danger{color:#fff;background:var(--danger);border-color:var(--danger)}.history-empty{background:#fff;border:1.5px dashed var(--line);border-radius:10px;padding:28px;text-align:center;color:var(--ink-soft);font-size:14px}@media(max-width:420px){.row{flex-direction:column}.choice-box{flex-direction:column}h1{font-size:21px}}
+@media print{body{background:#fff!important;padding-bottom:0!important}.tapebar,.history-page,.btn-add,.btn-secondary,.icon-btn,.item-del,#btnClear,#saveLine{display:none!important}.wrap{max-width:100%;padding:8px}.card{break-inside:avoid;background:#fff}}
+#lockScreen{position:fixed;inset:0;z-index:999;background:var(--steel-dark);display:flex;align-items:center;justify-content:center;padding:24px}
+#lockScreen.hidden{display:none}
+.lock-box{background:var(--card);border-radius:14px;padding:28px 22px;max-width:320px;width:100%;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+.lock-box .lock-ico{font-size:38px;margin-bottom:8px}
+.lock-box h2{color:var(--steel-dark);font-size:18px;margin:0 0 6px;font-weight:800}
+.lock-box p{color:var(--ink-soft);font-size:13px;margin:0 0 18px}
+.lock-box input{text-align:center;font-size:22px;letter-spacing:4px;font-family:'IBM Plex Mono',monospace;margin-bottom:10px}
+.lock-box button{width:100%;background:var(--orange);color:#fff;font-size:15px;padding:13px;border-radius:8px;box-shadow:0 2px 0 var(--orange-dark)}
+.lock-error{color:var(--danger);font-size:12.5px;margin-top:8px;min-height:16px;font-weight:700}
+
+#trialBadge{position:fixed;top:8px;left:8px;z-index:998;background:#1A2830;color:#fff;border:2px solid #F0B429;border-radius:10px;padding:8px 11px;font-size:12px;font-weight:800;direction:rtl;box-shadow:0 3px 12px rgba(0,0,0,.25)}
+</style>
+</head>
+<body>
+<div id="trialBadge" hidden></div>
+<div id="lockScreen">
+  <div class="lock-box">
+    <div class="lock-ico">🔐</div>
+    <h2 id="licenseTitle">ترخيص التطبيق</h2>
+    <p id="licenseMessage">أدخل مفتاح تجربة 48 ساعة أو مفتاح التفعيل الدائم.</p>
+    <div id="countdownBox" style="background:#FFF8E8;border:1px solid #F0B429;border-radius:8px;padding:10px;margin-bottom:12px;font-weight:800;color:#B84B0A"></div>
+    <label for="deviceCode" style="text-align:right">رمز الجهاز</label>
+    <input type="text" id="deviceCode" readonly style="font-size:15px;letter-spacing:1px;margin-bottom:8px">
+    <button type="button" id="copyDeviceBtn" style="background:#33495B;box-shadow:none;margin-bottom:12px">نسخ رمز الجهاز</button>
+    <label for="lockInput" style="text-align:right">مفتاح التفعيل</label>
+    <input type="text" inputmode="text" id="lockInput" maxlength="900" placeholder="Collez ici la licence complète générée pour ce code appareil" style="font-size:17px;letter-spacing:1px;text-transform:uppercase">
+    <button type="button" id="lockBtn">تفعيل الترخيص</button>
+    <button type="button" id="continueTrialBtn" style="background:#2F7A4F;box-shadow:none;margin-top:8px">متابعة</button>
+    <div class="lock-error" id="lockError"></div>
+    <p style="margin-top:12px;margin-bottom:0;font-size:11px">التفعيل مرتبط بهذا المتصفح وبـرمز هذا الجهاز/المتصفح.</p>
+  </div>
+</div>
+<div class="wrap">
+<header>
+<div class="eyebrow">نجارة الألمنيوم · MASAI / CONFORT / ROYALE</div>
+<div class="card" style="margin:8px 0 12px;padding:12px;background:#fffdf8;border-color:#F0B429">
+<label for="titreCommentaire" style="color:#B84B0A;font-weight:800">ملاحظة / تعليق على الحساب</label>
+<textarea id="titreCommentaire" rows="2" placeholder="اكتب هنا اسم الزبون أو المشروع..." style="min-height:54px;resize:vertical"></textarea>
+</div>
+<h1>حاسبة احتياجات بروفيلات الألمنيوم</h1>
+<p class="sub">اختر نوع البروفيل ثم أدخل مقاسات النافذة، ويمكنك حفظ القياس في التاريخ.</p>
+</header>
+
+<div class="card"><h2><span class="idx">1</span> نوع البروفيل</h2><div class="profile-block"><div class="ptitle"><span class="swatch" style="background:#E1600F"></span> نوع البروفيل</div><select id="profilePreset"><option value="masai">MASAI</option><option value="confort">CONFORT</option><option value="royale">ROYALE</option><option value="s88rp">S88RP</option></select></div>
+
+<div class="profile-block" id="customProfileBlock">
+<div class="ptitle"><span class="swatch" style="background:#9C6F2E"></span> بروفيلات مخصصة</div>
+<button class="btn-secondary" id="btnToggleCustomForm" type="button" style="margin-top:0">+ إضافة نوع بروفيل جديد</button>
+<div id="customForm" style="display:none;margin-top:10px">
+<p class="desc" style="margin-bottom:10px">أدخل اسم البروفيل، ثم قيم Y وX وS وZ حسب المعادلة العامة التالية: <b>كروشمو/فيرو = الارتفاع − Y</b> · <b>الروليطة = العرض − X</b> (مع تقسيم اختياري على 2) · <b>زجاج: الارتفاع = الارتفاع − S</b> · <b>زجاج: العرض = العرض − Z</b> (مع تقسيم اختياري على 2). يمكن اختيار البروفيل المحفوظ لاحقا من القائمة أعلاه.</p>
+<div class="row"><div><label>اسم البروفيل</label><input type="text" id="cp_name" placeholder="مثال: ROYAL"></div><div><label>طول البارة (م)</label><input type="number" id="cp_barlen" placeholder="6.4" step="0.1"></div></div>
+<div class="row"><div><label>كروشمو/فيرو = الارتفاع − Y &nbsp;·&nbsp; أدخل قيمة Y</label><input type="number" id="cp_croch" placeholder="6.5" step="0.1"></div></div>
+<div class="row"><div><label>الروليطة = العرض − X &nbsp;·&nbsp; أدخل قيمة X</label><input type="number" id="cp_roul" placeholder="8.6" step="0.1"></div><div style="display:flex;align-items:flex-end;padding-bottom:10px"><label style="display:flex;align-items:center;gap:6px;margin:0"><input type="checkbox" id="cp_roul_div2" checked style="width:auto"> تقسيم الناتج على 2</label></div></div>
+<div class="row"><div><label>زجاج: الارتفاع = الارتفاع − S &nbsp;·&nbsp; أدخل قيمة S</label><input type="number" id="cp_glassh" placeholder="15.5" step="0.1"></div></div>
+<div class="row"><div><label>زجاج: العرض = العرض − Z &nbsp;·&nbsp; أدخل قيمة Z</label><input type="number" id="cp_glassl" placeholder="17.6" step="0.1"></div><div style="display:flex;align-items:flex-end;padding-bottom:10px"><label style="display:flex;align-items:center;gap:6px;margin:0"><input type="checkbox" id="cp_glassl_div2" checked style="width:auto"> تقسيم الناتج على 2</label></div></div>
+<button class="btn-add" id="btnSaveCustomProfile" type="button">💾 حفظ البروفيل الجديد</button>
+<div id="cpMsg" class="desc" style="margin-top:6px"></div>
+</div>
+<div id="customProfileList" style="margin-top:10px"></div>
+</div>
+</div>
+
+<div class="card"><h2><span class="idx">2</span> مقاسات النافذة</h2><div class="row"><div><label for="nom">الاسم / العلامة</label><input type="text" id="nom" value="نافذة 1"></div><div><label for="qte">العدد</label><input type="number" id="qte" value="1" min="1" step="1"></div></div><div class="row"><div><label for="largeur">العرض</label><input type="number" id="largeur" placeholder="120" min="0" step="0.5"><div class="unit">سنتيمتر</div></div><div><label for="hauteur">الارتفاع</label><input type="number" id="hauteur" placeholder="140" min="0" step="0.5"><div class="unit">سنتيمتر</div></div></div></div>
+
+<button class="btn-add" id="btnBulkToggle" type="button" style="margin-bottom:14px;background:#5B6B74">+ إضافة عدة مقاسات دفعة واحدة</button>
+<div id="bulkBox" style="display:none;margin-bottom:14px" class="card">
+<p class="desc" style="margin-bottom:8px">سطر لكل نافذة، بالترتيب: العرض,الارتفاع,العدد,الاسم (الاسم اختياري) — يمكن استعمال الفاصلة "," أو النقطة "." للفصل بين الأرقام<br>مثال: <span class="mono">120,140,2,نافذة المطبخ</span> أو <span class="mono">120.140.2.نافذة المطبخ</span></p>
+<textarea id="bulkInput" rows="5" style="width:100%;font-family:'IBM Plex Mono',monospace;font-size:13px;padding:10px;border:1.5px solid var(--line);border-radius:8px;background:#fff;color:var(--ink);box-sizing:border-box" placeholder="120,140,2,نافذة المطبخ&#10;90,120,1&#10;150,140,3,نافذة الصالون"></textarea>
+<button class="btn-add" id="btnBulkAdd" type="button" style="margin-top:8px">إضافة كل الأسطر</button>
+<div id="bulkMsg" class="desc" style="margin-top:6px"></div>
+</div>
+
+
+<div class="card"><h2><span class="idx">3</span> خيار كاش ريدو</h2><div class="profile-block"><div class="ptitle"><span class="swatch" style="background:#4A6FA5"></span> كاش ريدو</div><div class="choice-box"><label><input type="radio" name="cacheOption" value="oui" checked> Avec كاش ريدو</label><label><input type="radio" name="cacheOption" value="non"> Sans كاش ريدو</label></div></div></div>
+
+<div class="card"><h2><span class="idx">4</span> إعدادات البارات لكل بروفيل</h2><p class="desc" id="barInfo">MASAI : 6.60 م</p><div id="barSettings"></div></div>
+
+<button class="btn-add" id="btnAdd" type="button" style="margin-bottom:14px">+ إضافة النافذة للقائمة</button>
+
+<div class="card"><h2><span class="idx">5</span> إعدادات الإكسسوارات لكل نافذة</h2><div class="row"><div><label>ثمن روايد</label><input type="number" id="prix_acc_roulette" placeholder="0"></div><div><label>ثمن لكلامة</label><input type="number" id="prix_acc_clame" placeholder="0"></div><div><label>ثمن لكيد</label><input type="number" id="prix_acc_guide" placeholder="0"></div></div><div class="row"><div><label>ثمن لبروس / متر</label><input type="number" id="prix_acc_brosse" placeholder="0"></div><div><label>ثمن زجاج / م²</label><input type="number" id="prix_acc_zoujaj" placeholder="0"></div></div></div>
+
+<div class="list-title"><span>لائحة النوافذ</span><button id="btnClear" type="button">مسح الكل</button></div><div id="list"></div>
+<div class="list-title"><span>العدد الإجمالي والثمن</span></div><div class="card" id="results"></div>
+<div class="list-title"><span>قائمة تفصيل القطع (الديبيطاج)</span></div><p class="desc" id="debitageFormulaInfo" style="margin:-6px 4px 10px"></p><div class="card" id="debitage"></div>
+<button class="btn-add btn-green" id="btnSaveBelowDebitage" type="button">💾 حفظ القياس الحالي</button>
+<div id="saveLine" class="desc" style="text-align:center;color:#2F7A4F;font-weight:800;margin-top:8px"></div>
+<button class="btn-add" id="btnExportPdfBelow" type="button" style="margin-top:8px;background:#B84B0A;box-shadow:0 2px 0 #8e3907">📄 Export PDF</button>
+<button class="btn-secondary" id="btnOpenHistoryMain" type="button">📂 فتح تاريخ القياسات</button>
+</div>
+
+<div id="historyPage" class="history-page">
+<div class="history-header"><div class="history-title">📂 تاريخ القياسات</div><div class="history-actions"><button class="history-btn orange" id="btnSaveCurrentHistory" type="button">حفظ القياس الحالي</button><button class="history-btn" id="btnCloseHistory" type="button">رجوع</button></div></div>
+<div class="history-content"><div class="card"><h2><span class="idx">H</span> البحث في التاريخ</h2><div class="row"><div><label>بحث بالاسم</label><input type="text" id="historySearch" placeholder="ابحث بالاسم المكتوب في ملاحظة / تعليق على الحساب"></div><div><label>تصفية حسب النوع</label><select id="historyTypeFilter"><option value="">الكل</option><option value="masai">MASAI</option><option value="confort">CONFORT</option><option value="royale">ROYALE</option><option value="s88rp">S88RP</option></select></div></div><div style="display:flex;gap:8px"><button class="history-btn" id="btnShowAll" type="button" style="flex:1;background:#33495B">إظهار الكل</button><button class="history-btn danger" id="btnClearHistory" type="button" style="flex:1">مسح كل التاريخ</button></div></div><div id="historyList"></div><div id="historyCounter" class="desc" style="color:#2F7A4F;font-weight:800"></div></div>
+</div>
+
+<div class="tapebar"><div class="tapebar-inner"><div class="tapebar-row"><div><div class="tapebar-label">الثمن الإجمالي</div><div class="tapebar-total mono" id="grandTotal">0 درهم</div></div><div class="tapebar-actions"><button class="icon-btn" id="btnOpenHistory" type="button" title="Historique"><span class="ico">📂</span><span>التاريخ</span></button><button class="icon-btn" id="btnExportPdfBottom" type="button" title="Export PDF"><span class="ico">📄</span><span>PDF</span></button><button class="icon-btn" id="btnShare" type="button" title="مشاركة"><span class="ico">⇪</span><span>نسخ</span></button></div></div></div></div>
+
+<script>
+var HISTORY_KEY='ALU_HISTORY_CLEAN_V1';
+var CUSTOM_KEY='ALU_CUSTOM_PROFILES_V1';
+var items=[]; var counter=0;
+function el(id){return document.getElementById(id)}
+function round1(n){return Math.round(n*10)/10}
+function fmt(n){return Math.round(n).toLocaleString('fr-FR')}
+function getCustomProfiles(){try{return JSON.parse(localStorage.getItem(CUSTOM_KEY)||'[]')||[]}catch(e){return[]}}
+function setCustomProfiles(list){try{localStorage.setItem(CUSTOM_KEY,JSON.stringify(list||[]))}catch(e){}}
+function findCustom(t){var list=getCustomProfiles();for(var i=0;i<list.length;i++){if(list[i].id===t)return list[i]}return null}
+function getBarLen(t){var c=findCustom(t);if(c)return c.barLen||6.4;return barLen[t]||6}
+function getPreset(t){if(findCustom(t))return presets.confort;return presets[t]||presets.masai}
+var profiles=[
+ {key:'cadre',label:'دورمو',color:'#33495B',calc:function(L,H,q){return ((L*2)+(H*2))*q/100}},
+ {key:'verrou',label:'القفل (فيرو)',color:'#E1600F',calc:function(L,H,q){return (H*2*q)/100}},
+ {key:'crochet',label:'كروشمو',color:'#F0B429',calc:function(L,H,q){return (H*2*q)/100}},
+ {key:'roulette',label:'بروفيل الروليطة',color:'#2F7A4F',calc:function(L,H,q){return (L*2*q)/100}},
+ {key:'cache',label:'كاش ريدو',color:'#4A6FA5',calc:function(L,H,q){return ((L*2)+60)*q/100}},
+ {key:'lirai',label:'ليراي',color:'#B5533C',calc:function(L,H,q){return (L*2*q)/100}},
+ {key:'chambranle',label:'شومبرا',color:'#2E9C8F',calc:function(L,H,q){return (((L*2)+(H*2))+70)*q/100}},
+ {key:'coulisse',label:'النافذة',color:'#9C6F2E',calc:function(L,H,q){return ((L-14.7)+((H-7.2)*2))*q/100}}
+];
+var presets={masai:['cadre','verrou','crochet','roulette','lirai','coulisse'],confort:['cadre','verrou','crochet','roulette','lirai','chambranle','coulisse'],royale:['cadre','verrou','crochet','roulette','lirai','chambranle','coulisse'],s88rp:['cadre','verrou','crochet','roulette','lirai','chambranle','coulisse']};
+var barLen={masai:6.6,confort:6,royale:6.4,s88rp:6.4};
+function profileLabel(t){var c=findCustom(t);if(c)return c.name;return t==='confort'?'CONFORT':(t==='royale'?'ROYALE':(t==='s88rp'?'S88RP':'MASAI'))}
+function selectedProfiles(){var set={};var t=el('profilePreset').value;var keys=getPreset(t);profiles.forEach(function(p){set[p.key]=keys.indexOf(p.key)>-1});var r=document.querySelector('input[name="cacheOption"]:checked');set.cache=(!r||r.value==='oui');return set}
+function currentType(){return el('profilePreset').value}
+function initBars(){var html='';profiles.forEach(function(p){if(p.key==='coulisse')return;html+='<div class="profile-block"><div class="ptitle"><span class="swatch" style="background:'+p.color+'"></span>'+p.label+'</div><div class="row"><div><label>طول البارة</label><input type="number" id="len_'+p.key+'" disabled></div><div><label>ثمن البارة الواحد</label><input type="number" id="prix_'+p.key+'" placeholder="0"></div></div></div>'});el('barSettings').innerHTML=html;applyProfile();}
+function applyProfile(){var t=currentType();el('barInfo').textContent=profileLabel(t)+' : '+getBarLen(t).toFixed(2)+' م';profiles.forEach(function(p){var x=el('len_'+p.key);if(x)x.value=getBarLen(t)}) ;updateDebitageInfo();render();}
+function toWesternDigits(s){s=(s==null?'':String(s)).trim();var east='٠١٢٣٤٥٦٧٨٩';return s.replace(/[٠-٩]/g,function(d){return String(east.indexOf(d))}).replace(',','.')}
+function addItemFromInputs(){var Lraw=toWesternDigits(el('largeur').value),Hraw=toWesternDigits(el('hauteur').value);var L=parseFloat(Lraw),H=parseFloat(Hraw);if(!Lraw||isNaN(L)||L<=0){alert('من فضلك أدخل العرض (قيمة أكبر من 0).');el('largeur').focus();return false}if(!Hraw||isNaN(H)||H<=0){alert('من فضلك أدخل الارتفاع (قيمة أكبر من 0).');el('hauteur').focus();return false}var q=Math.max(1,parseInt(el('qte').value,10)||1);var n=el('nom').value.trim()||('نافذة '+(counter+1));items.push({id:counter++,nom:n,largeur:L,hauteur:H,qte:q,typeMenu:currentType(),profilesUsed:selectedProfiles()});el('largeur').value='';el('hauteur').value='';el('nom').value='نافذة '+(counter+1);render();return true}
+function addBulkMeasurements(){
+  var raw=el('bulkInput').value;
+  var lines=raw.split('\n').map(function(l){return l.trim()}).filter(function(l){return l.length>0});
+  if(lines.length===0){el('bulkMsg').textContent='أدخل سطرا واحدا على الأقل.';el('bulkMsg').style.color='#C0392B';return false}
+  var added=0,errors=[];
+  lines.forEach(function(line,idx){
+    var parts=line.split(/[,;،.]/).map(function(p){return p.trim()});
+    var Lraw=toWesternDigits(parts[0]),Hraw=toWesternDigits(parts[1]);
+    var L=parseFloat(Lraw),H=parseFloat(Hraw);
+    if(!Lraw||isNaN(L)||L<=0||!Hraw||isNaN(H)||H<=0){errors.push('السطر '+(idx+1)+': عرض/ارتفاع غير صالح');return}
+    var q=Math.max(1,parseInt(toWesternDigits(parts[2]),10)||1);
+    var n=(parts[3]||'').trim()||('نافذة '+(counter+1));
+    items.push({id:counter++,nom:n,largeur:L,hauteur:H,qte:q,typeMenu:currentType(),profilesUsed:selectedProfiles()});
+    added++;
+  });
+  el('bulkInput').value='';
+  render();
+  var msg=added+' نافذة تمت إضافتها بنجاح.';
+  if(errors.length>0)msg+=' ('+errors.length+' سطر به خطأ: '+errors.join(' · ')+')';
+  el('bulkMsg').textContent=msg;
+  el('bulkMsg').style.color=errors.length>0?'#B84B0A':'#2F7A4F';
+  return false;
+}
+function toggleBulkBox(){var b=el('bulkBox');b.style.display=(b.style.display==='none'||!b.style.display)?'block':'none';return false}
+function ensureCurrentMeasurement(){if(items.length>0)return true;return addItemFromInputs()}
+
+function toggleCustomForm(){var b=el('customForm');b.style.display=(b.style.display==='none'||!b.style.display)?'block':'none';return false}
+function refreshProfileOptions(){[['profilePreset',false],['historyTypeFilter',true]].forEach(function(pair){var sel=el(pair[0]);if(!sel)return;var current=sel.value;Array.prototype.slice.call(sel.querySelectorAll('option[data-custom]')).forEach(function(o){o.remove()});getCustomProfiles().forEach(function(c){var opt=document.createElement('option');opt.value=c.id;opt.textContent=c.name;opt.setAttribute('data-custom','1');sel.appendChild(opt)});var stillExists=Array.prototype.slice.call(sel.options).some(function(o){return o.value===current});if(stillExists)sel.value=current})}
+function renderCustomProfileList(){var list=getCustomProfiles();var box=el('customProfileList');if(!box)return;if(list.length===0){box.innerHTML='';return}box.innerHTML='<div class="desc" style="margin-bottom:6px;font-weight:700">البروفيلات المحفوظة:</div>'+list.map(function(c){return '<div style="display:flex;justify-content:space-between;align-items:center;background:#fff;border:1px solid var(--line);border-radius:8px;padding:8px 10px;margin-bottom:6px"><span style="font-weight:700">'+c.name+'</span><button class="item-del" type="button" onclick="deleteCustomProfile(\''+c.id+'\')">حذف</button></div>'}).join('')}
+function saveCustomProfile(){var name=(el('cp_name').value||'').trim();if(!name){el('cpMsg').textContent='الرجاء إدخال اسم البروفيل.';el('cpMsg').style.color='#C0392B';return false}var list=getCustomProfiles();if(list.some(function(c){return c.name.toLowerCase()===name.toLowerCase()})){el('cpMsg').textContent='يوجد بروفيل بنفس الاسم بالفعل.';el('cpMsg').style.color='#C0392B';return false}var c={id:'custom_'+Date.now(),name:name,barLen:parseFloat(toWesternDigits(el('cp_barlen').value))||6.4,crochOffset:parseFloat(toWesternDigits(el('cp_croch').value))||0,rouliyaOffset:parseFloat(toWesternDigits(el('cp_roul').value))||0,rouliyaDivide2:el('cp_roul_div2').checked,glassHOffset:parseFloat(toWesternDigits(el('cp_glassh').value))||0,glassLOffset:parseFloat(toWesternDigits(el('cp_glassl').value))||0,glassLDivide2:el('cp_glassl_div2').checked};list.push(c);setCustomProfiles(list);['cp_name','cp_barlen','cp_croch','cp_roul','cp_glassh','cp_glassl'].forEach(function(id){el(id).value=''});el('cp_roul_div2').checked=true;el('cp_glassl_div2').checked=true;refreshProfileOptions();renderCustomProfileList();el('profilePreset').value=c.id;applyProfile();el('cpMsg').textContent='✅ تم حفظ البروفيل "'+name+'" ويمكن اختياره الآن من القائمة أعلاه.';el('cpMsg').style.color='#2F7A4F';return false}
+function deleteCustomProfile(id){if(!confirm('حذف هذا البروفيل؟'))return false;setCustomProfiles(getCustomProfiles().filter(function(c){return c.id!==id}));refreshProfileOptions();renderCustomProfileList();if(currentType()===id){el('profilePreset').value='masai';applyProfile()}return false}
+function removeItem(id){for(var i=0;i<items.length;i++){if(items[i].id===id){items.splice(i,1);break}}render()}
+function brosseLength(L,H,q){return(((L*2)*4)+((H*2)*2)+((H*2)*4))*q/100}
+function glassArea(L,H,q){return ((H+30)*L/10000)*q}
+function glassCut(L,H,t){var c=findCustom(t);if(c){var hv=H-(c.glassHOffset||0);var lv=L-(c.glassLOffset||0);if(c.glassLDivide2)lv=lv/2;return{h:round1(hv),l:round1(lv)}}if(t==='confort')return{h:round1(H-14.5),l:round1((L-17.2)/2)};if(t==='royale')return{h:round1(H-15.5),l:round1((L-20.2)/2)};if(t==='s88rp')return{h:round1(H-19.1),l:round1((L-19.6)/2)};return{h:round1(H-16.5),l:round1((L-17.6)/2)}}
+function croch(H,t){var c=findCustom(t);if(c)return round1(H-(c.crochOffset||0));if(t==='confort')return round1(H-6.7);if(t==='royale')return round1(H-6.5);if(t==='s88rp')return round1(H-7.8);return round1(H-7.1)}
+function verrou(H,t){return croch(H,t)}
+function rouliya(L,t){var c=findCustom(t);if(c){var v=L-(c.rouliyaOffset||0);return round1(c.rouliyaDivide2?v/2:v)}if(t==='confort')return round1((L-5.2)/2);if(t==='royale')return round1((L-8.6)/2);if(t==='s88rp')return round1((L-18.2)/2);return round1(L-14.7)}
+function updateDebitageInfo(){var t=currentType();var c=findCustom(t);var label=profileLabel(t);var cOff,rOff,rDiv,ghOff,glOff,glDiv;if(c){cOff=c.crochOffset||0;rOff=c.rouliyaOffset||0;rDiv=!!c.rouliyaDivide2;ghOff=c.glassHOffset||0;glOff=c.glassLOffset||0;glDiv=!!c.glassLDivide2}else{var table={masai:{c:7.1,r:14.7,rd:false,gh:16.5,gl:17.6,gld:true},confort:{c:6.7,r:5.2,rd:true,gh:14.5,gl:17.2,gld:true},royale:{c:6.5,r:8.6,rd:true,gh:15.5,gl:20.2,gld:true},s88rp:{c:7.8,r:18.2,rd:true,gh:19.1,gl:19.6,gld:true}};var d=table[t]||table.masai;cOff=d.c;rOff=d.r;rDiv=d.rd;ghOff=d.gh;glOff=d.gl;glDiv=d.gld}var rTxt=rDiv?'(العرض−'+rOff+')/2':'(العرض−'+rOff+')';var glTxt=glDiv?'(العرض−'+glOff+')/2':'(العرض−'+glOff+')';var elInfo=el('debitageFormulaInfo');if(elInfo)elInfo.textContent=label+': كروشمو وفيرو = الارتفاع−'+cOff+' · الروليطة='+rTxt+' · زجاج: الارتفاع=الارتفاع−'+ghOff+' · العرض='+glTxt}
+function valOr(id,def){var x=el(id);return x?(parseFloat(x.value)||def):def}
+function render(){var list=el('list');if(items.length===0){list.innerHTML='<div class="empty">لا توجد شبابيك بعد.</div>'}else{list.innerHTML=items.map(function(it){return '<div class="item"><div class="item-top"><div><div class="item-name">'+it.nom+' <span style="color:var(--ink-soft);font-weight:400">×'+it.qte+'</span></div><div class="item-dims mono">'+it.largeur+'×'+it.hauteur+' سم</div><div class="item-dims">'+profileLabel(it.typeMenu)+'</div></div><button class="item-del" onclick="removeItem('+it.id+')">حذف</button></div></div>'}).join('')}
+var grand=0, totals={};profiles.forEach(function(p){totals[p.key]=0});items.forEach(function(it){profiles.forEach(function(p){if(it.profilesUsed&&it.profilesUsed[p.key]===false)return;totals[p.key]+=p.calc(it.largeur,it.hauteur,it.qte)})});var rows='';profiles.forEach(function(p){var m=totals[p.key], len=valOr('len_'+p.key,getBarLen(currentType())), unit=valOr('prix_'+p.key,0), nb=m>0?Math.ceil(m/len):0, price=nb*unit;grand+=price;rows+='<div class="res-row"><div class="res-name"><span class="swatch" style="background:'+p.color+'"></span>'+p.label+'</div><div class="res-vals">الطول: <b>'+round1(m)+'</b> م<br>البارات: <b>'+nb+'</b> · الثمن: <b>'+fmt(price)+'</b> درهم</div></div>'});var tw=items.reduce(function(a,it){return a+it.qte},0);[['acc_roulette','روايد',4],['acc_clame','لكلامة',4],['acc_guide','لكيد',1]].forEach(function(a){var price=valOr('prix_'+a[0],0)*a[2]*tw;grand+=price;rows+='<div class="res-row"><div class="res-name">'+a[1]+'</div><div class="res-vals">العدد: <b>'+(a[2]*tw)+'</b> · الثمن: <b>'+fmt(price)+'</b></div></div>'});var bm=items.reduce(function(s,it){return s+brosseLength(it.largeur,it.hauteur,it.qte)},0),bp=bm*valOr('prix_acc_brosse',0);grand+=bp;var ga=items.reduce(function(s,it){return s+glassArea(it.largeur,it.hauteur,it.qte)},0),gp=ga*valOr('prix_acc_zoujaj',0);grand+=gp;rows+='<div class="res-row"><div class="res-name">لبروس</div><div class="res-vals">الطول: <b>'+round1(bm)+'</b> م · الثمن: <b>'+fmt(bp)+'</b></div></div><div class="res-row"><div class="res-name">زجاج</div><div class="res-vals">المساحة: <b>'+round1(ga)+'</b> م² · الثمن: <b>'+fmt(gp)+'</b></div></div>';el('results').innerHTML=rows;el('grandTotal').textContent=fmt(grand)+' درهم';renderDebitage();buildSummary(grand)}
+function renderDebitage(){if(items.length===0){el('debitage').innerHTML='<div class="empty">لا توجد شبابيك بعد.</div>';return}var note=el('titreCommentaire').value.trim();var html='';items.forEach(function(it){var d=glassCut(it.largeur,it.hauteur,it.typeMenu), pcs=it.qte*2;html+='<div style="background:#F7F9FB;border:1.5px solid var(--line);border-radius:10px;padding:10px;margin-bottom:12px">'+(note?'<div style="background:#FFF8E8;border:1px solid #F0B429;border-radius:8px;padding:9px;margin-bottom:8px;font-weight:800;color:#B84B0A">📌 '+note+'</div>':'')+'<div style="font-weight:800;color:var(--steel-dark);font-size:14px;margin-bottom:7px">'+it.nom+' — '+profileLabel(it.typeMenu)+'</div><div class="res-vals" style="text-align:right;background:#fff;border:1px dashed var(--line);border-radius:8px;padding:8px;margin-bottom:8px">المقاسات المدخلة: العرض <b>'+it.largeur+'</b> سم · الارتفاع <b>'+it.hauteur+'</b> سم · العدد <b>'+it.qte+'</b></div><div class="res-row"><div class="res-name">زجاج</div><div class="res-vals"><b>'+pcs+'</b> قطعة بمقاس <b>'+d.h+'×'+d.l+'</b> سم</div></div><div class="res-row"><div class="res-name">كروشمو</div><div class="res-vals"><b>'+pcs+'</b> قطعة بطول <b>'+croch(it.hauteur,it.typeMenu)+'</b> سم</div></div><div class="res-row"><div class="res-name">فيرو</div><div class="res-vals"><b>'+pcs+'</b> قطعة بطول <b>'+verrou(it.hauteur,it.typeMenu)+'</b> سم</div></div><div class="res-row"><div class="res-name">الروليطة</div><div class="res-vals"><b>'+pcs+'</b> قطعة بطول <b>'+rouliya(it.largeur,it.typeMenu)+'</b> سم</div></div></div>'});el('debitage').innerHTML=html}
+function getPrices(){var o={};document.querySelectorAll('[id^="prix_"]').forEach(function(x){o[x.id]=x.value});return o}
+function setPrices(p){if(!p)return;document.querySelectorAll('[id^="prix_"]').forEach(function(x){x.value=''});Object.keys(p).forEach(function(k){var x=el(k);if(x)x.value=p[k]})}
+function buildSummary(grand){var note=el('titreCommentaire').value.trim();var txt='نوامكلاتير الألمنيوم:\n';if(note)txt+='ملاحظة: '+note+'\n';items.forEach(function(it){txt+='- '+it.nom+' ×'+it.qte+': '+it.largeur+'×'+it.hauteur+' سم | '+profileLabel(it.typeMenu)+'\n'});txt+='\nالمجموع: '+el('grandTotal').textContent;window._lastSummary=txt}
+var _historyBackup=[];
+function storageAvailable(){try{var k='__test_history__';localStorage.setItem(k,'1');localStorage.removeItem(k);return true}catch(e){return false}}
+function getHistory(){try{if(storageAvailable()){return JSON.parse(localStorage.getItem(HISTORY_KEY)||'[]')||[]}return _historyBackup}catch(e){return _historyBackup||[]}}
+function setHistory(h){h=(h||[]).slice(0,300);_historyBackup=h;try{if(storageAvailable()){localStorage.setItem(HISTORY_KEY,JSON.stringify(h))}}catch(e){}}
+
+function saveCurrent(){try{if(!ensureCurrentMeasurement())return false;render();var h=getHistory();var rec={id:Date.now(),date:new Date().toLocaleString('fr-FR'),commentaire:el('titreCommentaire').value.trim(),total:el('grandTotal').textContent,items:JSON.parse(JSON.stringify(items)),prices:getPrices(),profileType:el('profilePreset').value,summary:window._lastSummary||''};h.unshift(rec);setHistory(h);el('saveLine').textContent='✅ تم حفظ القياس. عدد السجلات: '+getHistory().length;openHistory();return false}catch(e){alert('خطأ في الحفظ: '+e.message);return false}}
+function openHistory(){var hp=el('historyPage');hp.classList.add('active');hp.style.display='block';el('historySearch').value='';el('historyTypeFilter').value='';renderHistory();setTimeout(function(){hp.scrollTop=0},50);return false}
+function closeHistory(){var hp=el('historyPage');hp.classList.remove('active');hp.style.display='none';return false}
+function showAll(){el('historySearch').value='';el('historyTypeFilter').value='';renderHistory();return false}
+function renderHistory(){var all=getHistory(), q=el('historySearch').value.trim().toLowerCase(), type=el('historyTypeFilter').value;var recs=all.filter(function(r){var okQ=!q||(r.commentaire||'').toLowerCase().indexOf(q)>-1;var okT=!type||(r.items||[]).some(function(it){return it.typeMenu===type});return okQ&&okT});recs.sort(function(a,b){return b.id-a.id});if(recs.length===0){el('historyList').innerHTML='<div class="history-empty">'+(all.length?'لا توجد نتيجة مطابقة. اضغط إظهار الكل.':'لا يوجد تاريخ محفوظ حاليا.')+'</div>'}else{el('historyList').innerHTML=recs.map(function(r){var nb=(r.items||[]).reduce(function(a,it){return a+(parseInt(it.qte,10)||0)},0);var types=[];(r.items||[]).forEach(function(it){var l=profileLabel(it.typeMenu);if(types.indexOf(l)<0)types.push(l)});var first=(r.items||[]).slice(0,5).map(function(it){return (it.nom||'نافذة')+' : '+it.largeur+'×'+it.hauteur+' سم ×'+it.qte}).join('<br>');return '<div class="history-record"><div class="history-record-title">'+(r.commentaire?'📌 '+r.commentaire:'قياس بدون تعليق')+'</div><div class="history-record-meta">'+r.date+' · '+types.join('، ')+' · عدد النوافذ: <b>'+nb+'</b> · المجموع: <b>'+r.total+'</b></div><div class="history-record-meta">'+first+'</div><div class="history-record-buttons"><button class="history-small-btn" onclick="loadRecord('+r.id+')">تحميل</button><button class="history-small-btn" onclick="shareRecord('+r.id+')">مشاركة / نسخ</button><button class="history-small-btn danger" onclick="deleteRecord('+r.id+')">حذف</button></div></div>'}).join('')}el('historyCounter').textContent='عدد السجلات المحفوظة: '+all.length;return false}
+function loadRecord(id){var r=getHistory().filter(function(x){return x.id===id})[0];if(!r)return false;items=[];(r.items||[]).forEach(function(it){items.push(it)});counter=items.reduce(function(m,it){return Math.max(m,(it.id||0)+1)},0);el('titreCommentaire').value=r.commentaire||'';if(r.profileType){el('profilePreset').value=r.profileType}initBars();setPrices(r.prices);closeHistory();render();return false}
+function deleteRecord(id){if(!confirm('حذف هذا القياس؟'))return false;setHistory(getHistory().filter(function(r){return r.id!==id}));renderHistory();return false}
+function clearHistory(){if(!confirm('مسح كل التاريخ؟'))return false;setHistory([]);renderHistory();return false}
+function shareRecord(id){var r=getHistory().filter(function(x){return x.id===id})[0];if(!r)return false;var text=(r.commentaire?'ملاحظة: '+r.commentaire+'\n':'')+'تاريخ: '+r.date+'\nالمجموع: '+r.total+'\n\n'+(r.summary||'');if(navigator.share){navigator.share({title:'تاريخ القياسات',text:text}).catch(function(){})}else if(navigator.clipboard){navigator.clipboard.writeText(text).then(function(){alert('تم النسخ')}).catch(function(){alert(text)})}else alert(text);return false}
+function exportPdf(){if(items.length===0){alert('لا توجد قياسات للتصدير');return}render();setTimeout(function(){window.print()},100)}
+function shareCurrent(){var text=window._lastSummary||'لا توجد بيانات';if(navigator.share){navigator.share({title:'نوامكلاتير الألمنيوم',text:text}).catch(function(){})}else if(navigator.clipboard){navigator.clipboard.writeText(text).then(function(){alert('تم النسخ')})}else alert(text)}
+function bind(){refreshProfileOptions();renderCustomProfileList();initBars();el('profilePreset').onchange=applyProfile;el('btnToggleCustomForm').onclick=toggleCustomForm;el('btnSaveCustomProfile').onclick=saveCustomProfile;el('btnAdd').onclick=addItemFromInputs;el('btnBulkToggle').onclick=toggleBulkBox;el('btnBulkAdd').onclick=addBulkMeasurements;el('btnClear').onclick=function(){items=[];render()};el('btnSaveBelowDebitage').onclick=saveCurrent;el('btnSaveCurrentHistory').onclick=saveCurrent;el('btnOpenHistory').onclick=openHistory;if(el('btnOpenHistoryMain'))el('btnOpenHistoryMain').onclick=openHistory;el('btnCloseHistory').onclick=closeHistory;el('btnShowAll').onclick=showAll;el('btnClearHistory').onclick=clearHistory;el('historySearch').oninput=renderHistory;el('historyTypeFilter').onchange=renderHistory;el('btnExportPdfBelow').onclick=exportPdf;el('btnExportPdfBottom').onclick=exportPdf;el('btnShare').onclick=shareCurrent;el('titreCommentaire').oninput=render;document.querySelectorAll('input,select').forEach(function(x){if(x.id!=='historySearch'&&x.id!=='historyTypeFilter')x.addEventListener('input',render)});render()}
+var DEVICE_KEY='ALU3_DEVICE_ID';
+var LICENSE_KEY='ALU3_SIGNED_LICENSE';
+var LICENSE_PUBLIC_JWK={"kty":"EC","crv":"P-256","x":"MWc65HTSvQ34puG0n09KUlvHA3fVB-r6iG5uQrKGyeE","y":"-YMoyzqmPxM3diz7JGGRMwbXoGv6bRshScWIbkoRc_c","key_ops":["verify"],"ext":true};
+var MEMORY_STORE={};
+function safeGet(k){try{return localStorage.getItem(k)||MEMORY_STORE[k]||''}catch(e){return MEMORY_STORE[k]||''}}
+function safeSet(k,v){MEMORY_STORE[k]=String(v);try{localStorage.setItem(k,String(v));return true}catch(e){return false}}
+function b64uEncodeBytes(bytes){var bin='';for(var i=0;i<bytes.length;i++)bin+=String.fromCharCode(bytes[i]);return btoa(bin).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'')}
+function b64uDecodeBytes(s){s=s.replace(/-/g,'+').replace(/_/g,'/');while(s.length%4)s+='=';var bin=atob(s),out=new Uint8Array(bin.length);for(var i=0;i<bin.length;i++)out[i]=bin.charCodeAt(i);return out}
+function utf8Bytes(s){return new TextEncoder().encode(s)}
+function bytesToHex(bytes){return Array.from(bytes).map(function(x){return x.toString(16).padStart(2,'0')}).join('').toUpperCase()}
+function makeDeviceId(){var id=safeGet(DEVICE_KEY);if(!id){var a=new Uint8Array(16);crypto.getRandomValues(a);id=bytesToHex(a).match(/.{1,4}/g).join('-');safeSet(DEVICE_KEY,id)}return id}
+function parseLicense(license){try{license=(license||'').trim();if(license.indexOf('ALU3.')!==0)return null;var p=license.split('.');if(p.length!==3)return null;var json=new TextDecoder().decode(b64uDecodeBytes(p[1]));return{payloadB64:p[1],sigB64:p[2],payloadJson:json,data:JSON.parse(json)}}catch(e){return null}}
+async function verifySignedLicense(license){var p=parseLicense(license);if(!p)return{ok:false,reason:'format'};try{var d=p.data;if(d.v!==3||d.device!==makeDeviceId()||!['trial48','permanent'].includes(d.type))return{ok:false,reason:'device'};var key=await crypto.subtle.importKey('jwk',LICENSE_PUBLIC_JWK,{name:'ECDSA',namedCurve:'P-256'},false,['verify']);var ok=await crypto.subtle.verify({name:'ECDSA',hash:'SHA-256'},key,b64uDecodeBytes(p.sigB64),utf8Bytes(p.payloadJson));if(!ok)return{ok:false,reason:'signature'};if(d.type==='trial48'&&(!d.expiresAt||Date.now()>d.expiresAt))return{ok:false,reason:'expired',data:d};return{ok:true,data:d}}catch(e){return{ok:false,reason:'error'}}}
+function formatTrial(ms){ms=Math.max(0,ms);var h=Math.floor(ms/3600000),m=Math.floor((ms%3600000)/60000),s=Math.floor((ms%60000)/1000);return h+' ساعة '+String(m).padStart(2,'0')+' دقيقة '+String(s).padStart(2,'0')+' ثانية'}
+function closeLicenseScreen(){el('lockScreen').classList.add('hidden')}
+function openLicenseScreen(expired){el('lockScreen').classList.remove('hidden');el('continueTrialBtn').style.display='none';el('licenseTitle').textContent=expired?'انتهت النسخة التجريبية':'أدخل مفتاح الترخيص';el('licenseMessage').textContent=expired?'انتهت مدة 48 ساعة. أدخل مفتاح التفعيل الدائم.':'أدخل مفتاح تجربة 48 ساعة أو مفتاح التفعيل الدائم.'}
+async function refreshLicense(){var badge=el('trialBadge');el('deviceCode').value=makeDeviceId();var r=await verifySignedLicense(safeGet(LICENSE_KEY));if(r.ok){closeLicenseScreen();badge.hidden=false;if(r.data.type==='permanent')badge.textContent='✅ نسخة مفعلة نهائيا';else{var rem=r.data.expiresAt-Date.now();badge.textContent='⏳ التجربة: '+formatTrial(rem);el('countdownBox').textContent='الوقت المتبقي: '+formatTrial(rem)}return}badge.hidden=true;el('countdownBox').textContent=r.reason==='expired'?'انتهت مدة التجربة':'لا يوجد ترخيص صالح';openLicenseScreen(r.reason==='expired')}
+async function tryUnlock(){var entered=(el('lockInput').value||'').trim();el('lockError').textContent='Vérification cryptographique...';var r=await verifySignedLicense(entered);if(r.ok){safeSet(LICENSE_KEY,entered);el('lockError').style.color='#2F7A4F';el('lockError').textContent=r.data.type==='trial48'?'✅ تم تفعيل تجربة 48 ساعة':'✅ تم التفعيل النهائي';await refreshLicense()}else{el('lockError').style.color='#C0392B';el('lockError').textContent=r.reason==='expired'?'انتهت صلاحية مفتاح التجربة':'المفتاح غير صحيح أو غير مرتبط بهذا الجهاز'}}
+function initLock(){el('deviceCode').value=makeDeviceId();el('lockBtn').onclick=tryUnlock;el('continueTrialBtn').style.display='none';el('copyDeviceBtn').onclick=function(){var code=makeDeviceId();if(navigator.clipboard)navigator.clipboard.writeText(code);else{el('deviceCode').select();document.execCommand('copy')}el('lockError').textContent='تم نسخ رمز الجهاز'};el('lockInput').addEventListener('keydown',function(e){if(e.key==='Enter')tryUnlock()});refreshLicense();setInterval(refreshLicense,1000)}
+window.onload=function(){initLock();bind()};
+if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){})})}
+</script>
+</body>
+</html>
